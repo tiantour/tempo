@@ -1,6 +1,6 @@
 package tempo
 
-// Time time
+// tempo
 var (
 	Time     = &iTime{}
 	Calendar = &iCalendar{}
