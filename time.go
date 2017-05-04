@@ -8,7 +8,7 @@ import (
 // Date
 func (i *iTime) Date(tempus time.Time) string {
 	year, mon, day := tempus.Date()
-	return fmt.Sprintf("%02d-%02d-%02d", year, mon, day)
+	return fmt.Sprintf("%d-%02d-%02d", year, mon, day)
 }
 
 // Clock

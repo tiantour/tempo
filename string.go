@@ -15,7 +15,7 @@ func (i *iString) Unix(s string) (int64, error) {
 func (i *iString) Date(s string) (string, error) {
 	tempo, err := i.Time(s)
 	year, mon, day := tempo.Date()
-	return fmt.Sprintf("%02d-%02d-%02d", year, mon, day), err
+	return fmt.Sprintf("%d-%02d-%02d", year, mon, day), err
 }
 
 // Clock

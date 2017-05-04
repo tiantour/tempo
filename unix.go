@@ -13,7 +13,7 @@ func (i *iUnix) String(n int64) string {
 // Date
 func (i *iUnix) Date(n int64) string {
 	year, mon, day := i.Time(n).Date()
-	return fmt.Sprintf("%02d-%02d-%02d", year, mon, day)
+	return fmt.Sprintf("%d-%02d-%02d", year, mon, day)
 }
 
 // Clock

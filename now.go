@@ -18,7 +18,7 @@ func (i *iNow) String() string {
 // Date
 func (i *iNow) Date() string {
 	year, mon, day := i.Time().Date()
-	return fmt.Sprintf("%02d-%02d-%02d", year, mon, day)
+	return fmt.Sprintf("%d-%02d-%02d", year, mon, day)
 }
 
 // Clock
