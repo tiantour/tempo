@@ -5,69 +5,103 @@ import (
 	"time"
 )
 
-// String
-func (i *iUnix) String(n int64) string {
-	return i.Time(n).Format("2006-01-02 15:04:05")
+// Unix unix
+type Unix struct{}
+
+// NewUnix new unix
+func NewUnix() *Unix {
+	return &Unix{}
 }
 
-// Date
-func (i *iUnix) Date(n int64) string {
-	year, mon, day := i.Time(n).Date()
+// String
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) String(n int64) string {
+	return u.Time(n).Format("2006-01-02 15:04:05")
+}
+
+// Date get date
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Date(n int64) string {
+	year, mon, day := u.Time(n).Date()
 	return fmt.Sprintf("%d-%02d-%02d", year, mon, day)
 }
 
-// Clock
-func (i *iUnix) Clock(n int64) string {
-	hour, min, sec := i.Time(n).Clock()
+// Clock get clock
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Clock(n int64) string {
+	hour, min, sec := u.Time(n).Clock()
 	return fmt.Sprintf("%02d:%02d:%02d", hour, min, sec)
 }
 
-// Year
-func (i *iUnix) Year(n int64) int {
-	return i.Time(n).Year()
+// Year get year
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Year(n int64) int {
+	return u.Time(n).Year()
 }
 
-// MonthString
-func (i *iUnix) MonthString(n int64) string {
-	return i.Time(n).Month().String()
+// MonthString get month string
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) MonthString(n int64) string {
+	return u.Time(n).Month().String()
 }
 
-// Month
-func (i *iUnix) Month(n int64) int {
-	return int(i.Time(n).Month())
+// Month get month
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Month(n int64) int {
+	return int(u.Time(n).Month())
 }
 
-// Day
-func (i *iUnix) Day(n int64) int {
-	return i.Time(n).Day()
+// Day get day
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Day(n int64) int {
+	return u.Time(n).Day()
 }
 
-// Hour
-func (i *iUnix) Hour(n int64) int {
-	return i.Time(n).Hour()
+// Hour get hour
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Hour(n int64) int {
+	return u.Time(n).Hour()
 }
 
-// Minute
-func (i *iUnix) Minute(n int64) int {
-	return i.Time(n).Minute()
+// Minute get minute
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Minute(n int64) int {
+	return u.Time(n).Minute()
 }
 
-// Second
-func (i *iUnix) Second(n int64) int {
-	return i.Time(n).Second()
+// Second get second
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Second(n int64) int {
+	return u.Time(n).Second()
 }
 
-// TimeToWeekDay
-func (i *iUnix) WeekDay(n int64) int {
-	return int(i.Time(n).Weekday())
+// WeekDay get time weekday
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) WeekDay(n int64) int {
+	return int(u.Time(n).Weekday())
 }
 
-// WeekDayString
-func (i *iUnix) WeekDayString(n int64) string {
-	return i.Time(n).Weekday().String()
+// WeekDayString get weekday string
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) WeekDayString(n int64) string {
+	return u.Time(n).Weekday().String()
 }
 
-// Time
-func (i *iUnix) Time(n int64) time.Time {
+// Time get time
+// date 2017-05-22
+// author andy.jiang
+func (u Unix) Time(n int64) time.Time {
 	return time.Unix(n, 0)
 }

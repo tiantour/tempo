@@ -5,81 +5,115 @@ import (
 	"time"
 )
 
-// Unix
-func (i *iString) Unix(s string) (int64, error) {
-	tempo, err := i.Time(s)
+// String string
+type String struct{}
+
+// NewString new string
+func NewString() *String {
+	return &String{}
+}
+
+// Unix get unix
+// date 2017-05-22
+// author andy.jiang
+func (s String) Unix(str string) (int64, error) {
+	tempo, err := s.Time(str)
 	return tempo.Unix(), err
 }
 
-// Date
-func (i *iString) Date(s string) (string, error) {
-	tempo, err := i.Time(s)
+// Date get date
+// date 2017-05-22
+// author andy.jiang
+func (s String) Date(str string) (string, error) {
+	tempo, err := s.Time(str)
 	year, mon, day := tempo.Date()
 	return fmt.Sprintf("%d-%02d-%02d", year, mon, day), err
 }
 
-// Clock
-func (i *iString) Clock(s string) (string, error) {
-	tempo, err := i.Time(s)
+// Clock get clock
+// date 2017-05-22
+// author andy.jiang
+func (s String) Clock(str string) (string, error) {
+	tempo, err := s.Time(str)
 	hour, min, sec := tempo.Clock()
 	return fmt.Sprintf("%02d:%02d:%02d", hour, min, sec), err
 }
 
-// Year
-func (i *iString) Year(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Year get year
+// date 2017-05-22
+// author andy.jiang
+func (s String) Year(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return tempo.Year(), err
 }
 
-// MonthString
-func (i *iString) MonthString(s string) (string, error) {
-	tempo, err := i.Time(s)
+// MonthString get month string
+// date 2017-05-22
+// author andy.jiang
+func (s String) MonthString(str string) (string, error) {
+	tempo, err := s.Time(str)
 	return tempo.Month().String(), err
 }
 
-// Month
-func (i *iString) Month(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Month get month
+// date 2017-05-22
+// author andy.jiang
+func (s String) Month(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return int(tempo.Month()), err
 }
 
-// Day
-func (i *iString) Day(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Day get day
+// date 2017-05-22
+// author andy.jiang
+func (s String) Day(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return tempo.Day(), err
 }
 
-// Hour
-func (i *iString) Hour(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Hour get hour
+// date 2017-05-22
+// author andy.jiang
+func (s String) Hour(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return tempo.Hour(), err
 }
 
-// Minute
-func (i *iString) Minute(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Minute get minute
+// date 2017-05-22
+// author andy.jiang
+func (s String) Minute(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return tempo.Minute(), err
 }
 
-// Second
-func (i *iString) Second(s string) (int, error) {
-	tempo, err := i.Time(s)
+// Second get second
+// date 2017-05-22
+// author andy.jiang
+func (s String) Second(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return tempo.Second(), err
 }
 
-// TimeToWeekDay
-func (i *iString) WeekDay(s string) (int, error) {
-	tempo, err := i.Time(s)
+// WeekDay get weekday
+// date 2017-05-22
+// author andy.jiang
+func (s String) WeekDay(str string) (int, error) {
+	tempo, err := s.Time(str)
 	return int(tempo.Weekday()), err
 }
 
-// WeekDayString
-func (i *iString) WeekDayString(s string) (string, error) {
-	tempo, err := i.Time(s)
+// WeekDayString get weekday string
+// date 2017-05-22
+// author andy.jiang
+func (s String) WeekDayString(str string) (string, error) {
+	tempo, err := s.Time(str)
 	return tempo.Weekday().String(), err
 }
 
-// Time
-func (i *iString) Time(s string) (time.Time, error) {
-	return time.ParseInLocation("2006-01-02 15:04:05", s, time.Local)
+// Time get time
+// date 2017-05-22
+// author andy.jiang
+func (s String) Time(str string) (time.Time, error) {
+	return time.ParseInLocation("2006-01-02 15:04:05", str, time.Local)
 }

@@ -5,9 +5,19 @@ import (
 	"time"
 )
 
-// Month
-func (i *iCalendar) Month(year, month int) []string {
-	num := i.Day(year, month)
+// Calendar calendar
+type Calendar struct{}
+
+// NewCalendar new calendar
+func NewCalendar() *Calendar {
+	return &Calendar{}
+}
+
+// Month get month
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) Month(year, month int) []string {
+	num := c.Day(year, month)
 	result := []string{}
 	for i := 1; i <= num; i++ {
 		item := fmt.Sprintf("%d-%02d-%02d", year, month, i)
@@ -16,38 +26,48 @@ func (i *iCalendar) Month(year, month int) []string {
 	return result
 }
 
-// Day
-func (i *iCalendar) Day(year, month int) int {
+// Day get day
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) Day(year, month int) int {
 	return time.Date(year, time.Month(month+1), 0, 0, 0, 0, 0, time.UTC).Day()
 }
 
-// Date
-func (i *iCalendar) Date(date string, increment int) string {
+// Date get date
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) Date(date string, increment int) string {
 	now := fmt.Sprintf("%s 00:00:00", date)
-	current, _ := String.Time(now)
-	return Time.Date(current.AddDate(0, 0, increment))
+	current, _ := NewString().Time(now)
+	return NewTime().Date(current.AddDate(0, 0, increment))
 }
 
-// Diff
-func (i *iCalendar) Diff(start, end string) float64 {
+// Diff get diff
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) Diff(start, end string) float64 {
 	start = fmt.Sprintf("%s 00:00:00", start)
 	end = fmt.Sprintf("%s 00:00:00", end)
-	startTime, _ := String.Time(start)
-	endTime, _ := String.Time(end)
+	startTime, _ := NewString().Time(start)
+	endTime, _ := NewString().Time(end)
 	return startTime.Sub(endTime).Hours()
 }
 
-// StartDate
-func (i *iCalendar) Start(t time.Time) string {
-	year := Time.Year(t)
-	month := Time.Month(t)
+// Start get start date
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) Start(t time.Time) string {
+	year := NewTime().Year(t)
+	month := NewTime().Month(t)
 	return fmt.Sprintf("%d-%02d-01", year, month)
 }
 
-// EndDate
-func (i *iCalendar) End(t time.Time) string {
-	year := Time.Year(t)
-	month := Time.Month(t)
-	day := i.Day(year, month)
+// End get end date
+// date 2017-05-22
+// author andy.jiang
+func (c Calendar) End(t time.Time) string {
+	year := NewTime().Year(t)
+	month := NewTime().Month(t)
+	day := c.Day(year, month)
 	return fmt.Sprintf("%d-%02d-%02d", year, month, day)
 }

@@ -5,59 +5,89 @@ import (
 	"time"
 )
 
-// Date
-func (i *iTime) Date(tempus time.Time) string {
+// Time time
+type Time struct{}
+
+// NewTime new time
+func NewTime() *Time {
+	return &Time{}
+}
+
+// Date get date
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Date(tempus time.Time) string {
 	year, mon, day := tempus.Date()
 	return fmt.Sprintf("%d-%02d-%02d", year, mon, day)
 }
 
-// Clock
-func (i *iTime) Clock(tempus time.Time) string {
+// Clock get clock
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Clock(tempus time.Time) string {
 	hour, min, sec := tempus.Clock()
 	return fmt.Sprintf("%02d:%02d:%02d", hour, min, sec)
 }
 
-// Year
-func (i *iTime) Year(tempus time.Time) int {
+// Year get year
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Year(tempus time.Time) int {
 	return tempus.Year()
 }
 
-// MonthString
-func (i *iTime) MonthString(tempus time.Time) string {
+// MonthString get month string
+// date 2017-05-22
+// author andy.jiang
+func (t Time) MonthString(tempus time.Time) string {
 	return tempus.Month().String()
 }
 
-// Month
-func (i *iTime) Month(tempus time.Time) int {
+// Month get month
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Month(tempus time.Time) int {
 	return int(tempus.Month())
 }
 
-// Day
-func (i *iTime) Day(tempus time.Time) int {
+// Day get day
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Day(tempus time.Time) int {
 	return tempus.Day()
 }
 
-// Hour
-func (i *iTime) Hour(tempus time.Time) int {
+// Hour get hour
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Hour(tempus time.Time) int {
 	return tempus.Hour()
 }
 
-// Minute
-func (i *iTime) Minute(tempus time.Time) int {
+// Minute get minute
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Minute(tempus time.Time) int {
 	return tempus.Minute()
 }
 
-// Second
-func (i *iTime) Second(tempus time.Time) int {
+// Second get second
+// date 2017-05-22
+// author andy.jiang
+func (t Time) Second(tempus time.Time) int {
 	return tempus.Second()
 }
 
-// WeekDayString
-func (i *iTime) WeekDayString(tempus time.Time) string {
+// WeekDayString get weekday string
+// date 2017-05-22
+// author andy.jiang
+func (t Time) WeekDayString(tempus time.Time) string {
 	return tempus.Weekday().String()
 }
 
-// WeekDay
-func (i *iTime) WeekDay(tempus time.Time) int {
+// WeekDay get weekday
+// date 2017-05-22
+// author andy.jiang
+func (t Time) WeekDay(tempus time.Time) int {
 	return int(tempus.Weekday())
 }
