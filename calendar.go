@@ -14,8 +14,6 @@ func NewCalendar() *Calendar {
 }
 
 // Month get month
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) Month(year, month int) []string {
 	num := c.Day(year, month)
 	result := []string{}
@@ -27,15 +25,11 @@ func (c Calendar) Month(year, month int) []string {
 }
 
 // Day get day
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) Day(year, month int) int {
 	return time.Date(year, time.Month(month+1), 0, 0, 0, 0, 0, time.UTC).Day()
 }
 
 // Date get date
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) Date(date string, increment int) string {
 	now := fmt.Sprintf("%s 00:00:00", date)
 	current, _ := NewString().Time(now)
@@ -43,8 +37,6 @@ func (c Calendar) Date(date string, increment int) string {
 }
 
 // Diff get diff
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) Diff(start, end string) float64 {
 	start = fmt.Sprintf("%s 00:00:00", start)
 	end = fmt.Sprintf("%s 00:00:00", end)
@@ -54,8 +46,6 @@ func (c Calendar) Diff(start, end string) float64 {
 }
 
 // Start get start date
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) Start(t time.Time) string {
 	year := NewTime().Year(t)
 	month := NewTime().Month(t)
@@ -63,8 +53,6 @@ func (c Calendar) Start(t time.Time) string {
 }
 
 // End get end date
-// date 2017-05-22
-// author andy.jiang
 func (c Calendar) End(t time.Time) string {
 	year := NewTime().Year(t)
 	month := NewTime().Month(t)
